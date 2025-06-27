@@ -17,6 +17,11 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @GetMapping("/")
+    public String home() {
+        return "✅ Spring Boot App Deployed Successfully!";
+    }
+
     @PostMapping
     public ResponseEntity<Student> createStudent(@Valid @RequestBody StudentDTO dto){
         return new ResponseEntity<>(studentService.createStudent(dto),HttpStatus.CREATED);
